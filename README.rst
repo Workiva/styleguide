@@ -1,2 +1,1 @@
-.. toctree::
-    STYLEGUIDE
+This is the Workiva Styleguide.
