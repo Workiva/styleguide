@@ -4,12 +4,12 @@ Workiva Python Style Guide
 Workiva's pythonic style guide is based primarily off of the PEP8_ and `Google
 Style Guide`_. As with all style guides, there is room for interpretation, so
 this Workiva Style Guide is intended to fill those gaps to provide a consistent
-look across the Pythonic code base.
+look across the Python code base.
 
 As with all style guides, the key to this one is readability. As the PEP8
-guidelines say about readability_, "Consistancy is the Hobgoblin of Little
-Minds." Your goal should always be to make your code as easy to read and
-understand as possible above all else.
+guidelines say about readability_, "A Foolish Consistency is the Hobgoblin 
+of Little Minds." Your goal should always be to make your code as easy to 
+read and understand as possible above all else.
 
 Docstrings:
 +++++++++++
@@ -160,7 +160,7 @@ we do not make the effort to keep them up to date.
 
 Frequent symptoms of an outdated docstring are:
 
-- Outdated parameter descriptions that use an '@' symbol.  e.g. @param.
+- parameter descriptions that use an '@' symbol.  e.g. @param.
 - Functions whose function signature has expanded without a corresponding
   expansion of the docstring. For example, the function may take four
   arguments while the docstring only describes two of them.
@@ -243,7 +243,7 @@ very helpful.
   # TODO: Add defensive error handling to this call, ticket: YOUR-1234
   result = function()
 
-MAGIC_NUMBER and MAGIC_STRING Tags:
+MAGIC-NUMBER and MAGIC-STRING Tags:
 -----------------------------------
 
 Magic numbers or strings are best avoided, but that is not always possible.
@@ -329,10 +329,10 @@ Often you will need to import more than one thing from a module, for example:
 
 .. code:: python
 
-    from math import radian, degree
+    from math import radians, degrees
 
 While this is fine for python built-in functions, and even for some 3rd party
-libraries, it is best to try to stick to one import for line. Especially for
+libraries, it is best to try to stick to one import per line. Especially for
 Workiva code, as our code base is frequently changing and improving we have
 components that move, change names or get merged together.
 
@@ -345,7 +345,7 @@ namespace.object notation to access individual elements within it. For example:
 
 .. code:: python
 
-    from math import radian, degree, exp, log, ceiling, floor
+    from math import radians, degrees, exp, log, ceil, floor
 
 This gets out of hand pretty quickly, it is better to just import the module,
 and reference the namespace like this:
@@ -354,11 +354,11 @@ and reference the namespace like this:
 
     import math
     ...
-    result = math.celing(variable)
+    result = math.ceil(variable)
     ...
 
 This is even more important with Workiva-based code libraries, as they are
-be more in flux, and therefore more likely to be missed during a refactor.
+more in flux, and therefore more likely to be missed during a refactor.
 The following format is recommended, especially for imports that cross
 repository codebase boundaries:
 
@@ -457,7 +457,7 @@ For simple and empty definitions, a single line statement should be sufficient.
   dictionary = {'simple': 0.0}
   list = []
   list = ['item1', 'item2']
-  tuple = ()
+  tuple = (,)
   tuple = (1, 2, 3)
 
 When things get more complicated, make sure that your opening and closing
@@ -541,8 +541,8 @@ if statments that look like this:
 
 .. code:: python
 
-  if (fact_one == True and
-      fact_two == False):
+  if (fact_one == 'one' and
+      fact_two == 'two'):
       code...
 
 Which will often throw an E128 errors when running through tools like Flake8.
@@ -554,8 +554,8 @@ inner parenthesis.
 
 .. code:: python
 
-  if ((fact_one == True and
-       fact_two == False)):
+  if ((fact_one == 'one' and
+       fact_two == 'two')):
       code...
 
 This will also make it quick and easy to read what the conjunctions are
@@ -564,7 +564,7 @@ complicated if statements. For example:
 
 .. code:: python
 
-  if ((fact_one > 0 and
+  if ((fact_one > 1 and
        ((fact_two == 'remove' or
          fact_three != 'true')))):
       code...
@@ -577,7 +577,7 @@ the character limit in a readable and understandable way. For example:
 
 .. code:: python
 
-  if ((len(children) > 0 and
+  if ((len(children) > 1 and
        ((str(node.get('changeStatus')).lower() == 'remove' or
          str(node.get('ignoreChildren')).lower() != 'true')))):
       code...
@@ -616,8 +616,8 @@ comprehension's scope like so:
 
     generated_list = [
         function(value) for value in value_list
-        if component.value >= 0
-        else function(0)
+        if value is not None
+        and value.is_valid()
     ]
 
 The first line should have whatever the elements of the list are being set to,
