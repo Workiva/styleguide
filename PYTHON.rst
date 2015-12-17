@@ -1,15 +1,15 @@
 Workiva Python Style Guide
 =============================
 
-Workiva's pythonic style guide is based primarily off of the PEP8_ and `Google
+Workiva's python style guide is based primarily off of the PEP8_ and `Google
 Style Guide`_. As with all style guides, there is room for interpretation, so
 this Workiva Style Guide is intended to fill those gaps to provide a consistent
-look across the Pythonic code base.
+look across the Python code base.
 
 As with all style guides, the key to this one is readability. As the PEP8
-guidelines say about readability_, "Consistancy is the Hobgoblin of Little
-Minds." Your goal should always be to make your code as easy to read and
-understand as possible above all else.
+guidelines say about readability_, "A Foolish Consistency is the Hobgoblin 
+of Little Minds." Your goal should always be to make your code as easy to 
+read and understand as possible above all else.
 
 Docstrings:
 +++++++++++
@@ -19,8 +19,8 @@ Docstrings are documentation for Python. The current standard for Workiva is
 providing a spread of knowledge about the code base as well as making it easier
 to track down and understand the flow of our software.
 
-A sample of docstrings:
------------------------
+A Sample Docstring:
+-------------------
 
 .. code:: python
 
@@ -29,7 +29,7 @@ A sample of docstrings:
       A brief summary of the function.
 
       A longer description of the function which goes into more detail, and
-      can be longer.
+      can span multiple lines.
 
       :param attr1: The first attribute, we will assume it is a string.
       :type attr1: str
@@ -160,7 +160,7 @@ we do not make the effort to keep them up to date.
 
 Frequent symptoms of an outdated docstring are:
 
-- Outdated parameter descriptions that use an '@' symbol.  e.g. @param.
+- parameter descriptions that use an '@' symbol.  e.g. @param.
 - Functions whose function signature has expanded without a corresponding
   expansion of the docstring. For example, the function may take four
   arguments while the docstring only describes two of them.
@@ -243,7 +243,7 @@ very helpful.
   # TODO: Add defensive error handling to this call, ticket: YOUR-1234
   result = function()
 
-MAGIC_NUMBER and MAGIC_STRING Tags:
+MAGIC-NUMBER and MAGIC-STRING Tags:
 -----------------------------------
 
 Magic numbers or strings are best avoided, but that is not always possible.
@@ -293,8 +293,8 @@ Relative imports allow you to import without needing to know the full path to
 the code you are importing. This can be immensely useful, but can often be hard
 to understand for someone new to a code base or someone trying to refactor. Due
 to this, relative imports are best avoided. They should be avoided completely if
-you are working on a pythonic library, as it will prevent possible naming
-conflicts from happening as systems grow more complex.
+you are working on a python library, as it is likely to cause naming conflicts 
+as systems grow more complex.
 
 Grouping Import Statements:
 ---------------------------
@@ -329,10 +329,10 @@ Often you will need to import more than one thing from a module, for example:
 
 .. code:: python
 
-    from math import radian, degree
+    from math import radians, degrees
 
 While this is fine for python built-in functions, and even for some 3rd party
-libraries, it is best to try to stick to one import for line. Especially for
+libraries, it is best to try to stick to one import per line. Especially for
 Workiva code, as our code base is frequently changing and improving we have
 components that move, change names or get merged together.
 
@@ -345,7 +345,7 @@ namespace.object notation to access individual elements within it. For example:
 
 .. code:: python
 
-    from math import radian, degree, exp, log, ceiling, floor
+    from math import radians, degrees, exp, log, ceil, floor
 
 This gets out of hand pretty quickly, it is better to just import the module,
 and reference the namespace like this:
@@ -354,11 +354,11 @@ and reference the namespace like this:
 
     import math
     ...
-    result = math.celing(variable)
+    result = math.ceil(variable)
     ...
 
 This is even more important with Workiva-based code libraries, as they are
-be more in flux, and therefore more likely to be missed during a refactor.
+more in flux, and therefore more likely to be missed during a refactor.
 The following format is recommended, especially for imports that cross
 repository codebase boundaries:
 
@@ -453,12 +453,12 @@ For simple and empty definitions, a single line statement should be sufficient.
 
 .. code:: python
 
-  dictionary = {}
-  dictionary = {'simple': 0.0}
-  list = []
-  list = ['item1', 'item2']
-  tuple = ()
-  tuple = (1, 2, 3)
+  a_dict = {}
+  a_dict = {'simple': 0.0}
+  a_list = []
+  a_list = ['item1', 'item2']
+  a_tuple = ()
+  a_tuple = (1, 2, 3)
 
 When things get more complicated, make sure that your opening and closing
 brackets match up with start of the first line, for example:
@@ -495,20 +495,21 @@ you can space things neatly, much like a multi-line dictionary, list, or tuple.
   result = Class.function(
       attribute_1=value_1,
       attribute_2={
-          'dictionary_index_0': "dictionary_value_0",
-          'dictionary_index_1': "dictionary_value_1", 'dictionary_index_2': 0,
-          'dictionary_index_3': "dictionary_value_3",
-          'dictionary_index_4': 0.0, 'dictionary_index_5': "dictionary_value_5",
-          'dictionary_index_6': None, 'dictionary_index_7': {},
-          'dictionary_index_8': "dictionary_value_8",
-          'dictionary_index_9': ""
+          'dictionary_key_0': "dictionary_value_0",
+          'dictionary_key_1': "dictionary_value_1", 'dictionary_key_2': 0,
+          'dictionary_key_3': "dictionary_value_3",
+          'dictionary_key_4': 0.0, 'dictionary_key_5': "dictionary_value_5",
+          'dictionary_key_6': None, 'dictionary_key_7': {},
+          'dictionary_key_8': "dictionary_value_8",
+          'dictionary_key_9': ""
       },
       attribute_3={
-          'dictionary_index_0': fucntion0, 'dictionary_index_1': function1,
-          'dictionary_index_2': function0, 'dictionary_index_3': function2,
-          'dictionary_index_4': function0
+          'dictionary_key_0': function0, 'dictionary_key_1': function1,
+          'dictionary_key_2': function0, 'dictionary_key_3': function2,
+          'dictionary_key_4': function0
       },
       attribute_4=True
+
   )
 
 This format makes it much easier to fit all of the parameters of a call in an
@@ -541,8 +542,8 @@ if statments that look like this:
 
 .. code:: python
 
-  if (fact_one == True and
-      fact_two == False):
+  if (fact_one == 'one' and
+      fact_two == 'two'):
       code...
 
 Which will often throw an E128 errors when running through tools like Flake8.
@@ -554,8 +555,8 @@ inner parenthesis.
 
 .. code:: python
 
-  if ((fact_one == True and
-       fact_two == False)):
+  if ((fact_one == 'one' and
+       fact_two == 'two')):
       code...
 
 This will also make it quick and easy to read what the conjunctions are
@@ -564,7 +565,7 @@ complicated if statements. For example:
 
 .. code:: python
 
-  if ((fact_one > 0 and
+  if ((fact_one > 1 and
        ((fact_two == 'remove' or
          fact_three != 'true')))):
       code...
@@ -577,26 +578,26 @@ the character limit in a readable and understandable way. For example:
 
 .. code:: python
 
-  if ((len(children) > 0 and
+  if ((len(children) > 1 and
        ((str(node.get('changeStatus')).lower() == 'remove' or
          str(node.get('ignoreChildren')).lower() != 'true')))):
       code...
 
-This code block still fits within the 79_ character limit, while still being
+This code block fits within the 79_ character limit, while still being
 readable and logically grouped.
 
 This style also allows for the use of as renames in with statements. To use a
-with mock as an example:
+with mock.patch as an example:
 
 .. code:: python
 
-  with ((mock(
+  with ((patch(
              'path.to.mock.for.a.test',
               return={'item_one': None, 'item_two': None}
          ))) as test:
       ...code...
 
-The extra parenthesis allows you to group the mock call all together and use
+The extra parenthesis allows you to group the patch call all together and use
 the same pattern you would normally use for a multi-line function call inside
 the with declaration, and allows for an easy rename without causing problems
 with under-indentation errors. It makes code like this easier to understand and
@@ -616,8 +617,8 @@ comprehension's scope like so:
 
     generated_list = [
         function(value) for value in value_list
-        if component.value >= 0
-        else function(0)
+        if value is not None
+        and value.is_valid()
     ]
 
 The first line should have whatever the elements of the list are being set to,
@@ -651,8 +652,8 @@ superior performance.
 
 Unfortunately, the concatenation operation for strings in python is bit slow
 especially compared to continuation, so if a long string is going to be used
-often, it is usually more performant to use the join operation of strings.
-Thus a continue is preferred to a join, and a join is preferred to +
+often, it is usually more performant to use the join method of strings.
+Thus a continuation is preferred to a join, and a join is preferred to +
 concatenation.
 
 
