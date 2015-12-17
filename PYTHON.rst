@@ -19,8 +19,8 @@ Docstrings are documentation for Python. The current standard for Workiva is
 providing a spread of knowledge about the code base as well as making it easier
 to track down and understand the flow of our software.
 
-A sample of a docstring:
-------------------------
+A Sample Docstring:
+-------------------
 
 .. code:: python
 
