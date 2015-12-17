@@ -294,7 +294,7 @@ the code you are importing. This can be immensely useful, but can often be hard
 to understand for someone new to a code base or someone trying to refactor. Due
 to this, relative imports are best avoided. They should be avoided completely if
 you are working on a python library, as it is likely to cause naming conflicts 
-from happening as systems grow more complex.
+as systems grow more complex.
 
 Grouping Import Statements:
 ---------------------------
