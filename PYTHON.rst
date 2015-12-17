@@ -1,7 +1,7 @@
 Workiva Python Style Guide
 =============================
 
-Workiva's pythonpy style guide is based primarily off of the PEP8_ and `Google
+Workiva's python style guide is based primarily off of the PEP8_ and `Google
 Style Guide`_. As with all style guides, there is room for interpretation, so
 this Workiva Style Guide is intended to fill those gaps to provide a consistent
 look across the Python code base.
