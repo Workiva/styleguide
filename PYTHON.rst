@@ -1,7 +1,7 @@
 Workiva Python Style Guide
 =============================
 
-Workiva's pythonic style guide is based primarily off of the PEP8_ and `Google
+Workiva's pythonpy style guide is based primarily off of the PEP8_ and `Google
 Style Guide`_. As with all style guides, there is room for interpretation, so
 this Workiva Style Guide is intended to fill those gaps to provide a consistent
 look across the Python code base.
@@ -293,8 +293,8 @@ Relative imports allow you to import without needing to know the full path to
 the code you are importing. This can be immensely useful, but can often be hard
 to understand for someone new to a code base or someone trying to refactor. Due
 to this, relative imports are best avoided. They should be avoided completely if
-you are working on a pythonic library, as it will prevent possible naming
-conflicts from happening as systems grow more complex.
+you are working on a python library, as it is likely to cause naming conflicts 
+from happening as systems grow more complex.
 
 Grouping Import Statements:
 ---------------------------
