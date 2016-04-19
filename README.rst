@@ -7,8 +7,9 @@ development community, and are always open to suggestions on how they can be
 improved.
 
 Current Styleguides:
---------------------
+====================
 
 - Python_
+---------
 
 .. _Python: https://github.com/Workiva/styleguide/blob/master/PYTHON.rst
