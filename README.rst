@@ -9,7 +9,7 @@ improved.
 Current Styleguides:
 ====================
 
-- Python_
----------
+Python_
+-------
 
 .. _Python: https://github.com/Workiva/styleguide/blob/master/PYTHON.rst
