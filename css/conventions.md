@@ -56,7 +56,7 @@ __CSS isn't just visual design.__ Don't throw out programming best practices jus
 
 #### Sass spacing
 
-Much the same way JavaScript is used to dynamically alter/create elements on a page, Sass `@mixin`s, `@function`s and `$variable`s are used to dynamically generate static css stylesheets, so the [same rules apply here as they do with Javascript][js-conventions].
+Much the same way JavaScript is used to dynamically alter/create elements on a page, Sass `@mixin`s, `@function`s and `$variable`s are used to dynamically generate static css stylesheets, so the [same rules apply here as they do with JavaScript][js-conventions].
 
 + Put spaces before and after operators.
 + Put a space after `:` and `,`.
