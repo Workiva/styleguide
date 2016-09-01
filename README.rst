@@ -21,19 +21,19 @@ and good taste.
 Current Styleguides A - Z:
 ==========================
 
-Css_
+CSS_
 ----
-Html_
------
-Javascript_
------------
 Golang_
 -------
+HTML_
+-----
+JavaScript_
+-----------
 Python_
 -------
 
-.. _Css: https://github.com/Workiva/styleguide/blob/master/css/conventions.md
-.. _Html: https://github.com/Workiva/styleguide/blob/master/html/conventions.md
-.. _Javascript: https://github.com/Workiva/styleguide/blob/master/js/README.md
+.. _CSS: https://github.com/Workiva/styleguide/blob/master/css/conventions.md
 .. _Golang: https://github.com/Workiva/styleguide/blob/master/go/style.rst
+.. _HTML: https://github.com/Workiva/styleguide/blob/master/html/conventions.md
+.. _JavaScript: https://github.com/Workiva/styleguide/blob/master/js/README.md
 .. _Python: https://github.com/Workiva/styleguide/blob/master/python/style.rst

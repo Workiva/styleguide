@@ -11,7 +11,7 @@
 * [Modules](#modules)
     * [CommonJS Module Syntax](#commonjs-module-syntax)
 * [Unit Testing](#unit-testing)
-* [Scope in Javascript](#scope-in-javascript)
+* [Scope in JavaScript](#scope-in-javascript)
     * [The `this` Object](#the-this-object)
     * [Usage of `self`/`that`](#usage-of-self--that)
     * [Understanding `this`](#understanding-this)

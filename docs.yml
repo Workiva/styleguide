@@ -2,13 +2,13 @@ title: Coding Conventions (A - Z)
 base: github:Workiva/styleguide/
 src: README.rst
 topics:
-    - title: Css
+    - title: CSS
       src: css/conventions.md
-    - title: Html
-      src: html/conventions.md
-    - title: Javascript
-      src: js/README.md
     - title: Golang
       src: go/style.rst
+    - title: HTML
+      src: html/conventions.md
+    - title: JavaScript
+      src: js/README.md
     - title: Python
       src: python/style.rst
