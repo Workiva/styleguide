@@ -1,6 +1,6 @@
 title: Coding Conventions (A - Z)
 base: github:Workiva/styleguide/
-src: README.rst
+src: README.md
 topics:
     - title: CSS
       src: css/conventions.md
