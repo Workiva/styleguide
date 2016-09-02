@@ -1,13 +1,13 @@
 Workiva Go Style Guide
 ======================
 
-1.  Follow \[Effective Go\](&lt;<https://golang.org/doc/effective_go.html>&gt;) and use \[proper commit messages\](&lt;<http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html>&gt;).
+1.  Follow [Effective Go](https://golang.org/doc/effective_go.html) and use [proper commit messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
 2.  Make sure your editor automatically runs gofmt on your source code.
-3.  Refer to \[best practices as described by Peter Bourgon\](&lt;<https://peter.bourgon.org/go-best-practices-2016/>&gt;)
+3.  Refer to [best practices as described by Peter Bourgon](https://peter.bourgon.org/go-best-practices-2016/)
 4.  Prefer wrapping lines to 80 characters, but avoid breaking string literals in error messages. Justification: If you break string literals, you break grep.
 5.  Prefer the %q and %+v directives over the %v directive in errors and logging messages. Justification: %v can result in ambiguous error messages when strings are used because the value is not encapsulated.
 6.  Don’t implement the magic String() method. Justification: if you accidentally use Printf the wrong way, you’ll end up in an infinite recursion loop and crash the server. This is hard to catch in testing.
-7.  Mocks (constructed with \[testify\](&lt;<https://github.com/stretchr/testify>&gt;)) must follow these rules:
+7.  Mocks constructed with [testify](https://github.com/stretchr/testify) must follow these rules:
 
 -   They must be publicly available. Justification: A private mock is not reusable and leads to dangerous copy-pasting.
 -   They must exist in the same repository as the interface they mock. Justification: When the interface changes, the developer will also update the mock as part of the same PR. This prevents extraneous, annoying, PRs and keeps breakage to a minimum.
