@@ -5,10 +5,10 @@ topics:
     - title: CSS
       src: css/conventions.md
     - title: Golang
-      src: go/style.rst
+      src: go/style.md
     - title: HTML
       src: html/conventions.md
     - title: JavaScript
       src: js/README.md
     - title: Python
-      src: python/style.rst
+      src: python/style.md
