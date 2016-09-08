@@ -11,4 +11,4 @@ topics:
     - title: JavaScript
       src: js/README.md
     - title: Python
-      src: python/style.rst
+      src: python/style.md
