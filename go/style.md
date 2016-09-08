@@ -21,7 +21,7 @@ if testing.Short() {
 }
 ```
 
-9.  Don’t use dot imports. Justification: They pollute the local namespace and confuse language tooling.
+9.  Don’t use [dot imports](http://stackoverflow.com/a/6478990). Justification: They pollute the local namespace and confuse language tooling.
 10.  The go test command provides a -race flag that automatically detects data races. Ideally, your continuous integration server should run your tests with -race. Justification: Catching data races is hard. If you enforce a race detector, every build will increase your chances of finding synchronization bugs in your code.
 11.  Decide on a convention to use to ensure thread safety in a multithreaded environment. For example, to prevent deadlocks you may make a rule that all exported methods/functions are responsible for obtaining/releasing mutexes and all non-exported functions are to remain lock-free. Deciding on a convention like this makes it easier to prevent deadlocks.
 12. Only import the flag package from main.go or a dedicated configuration package. Similarly, only import your dedicated config package from the main package or another configuration package. Justification: It’s wise to keep the flag package imports contained, since obscure compilation issues can be caused by declaring global flags or calling Parse as part of init.
@@ -30,6 +30,6 @@ Performant Go
 =============
 
 1.  When deciding whether to use an interface or a struct: prefer a struct if there will be more than 100 instances. Justification: Interfaces are significantly more expensive in both CPU and memory. Exception: Heterogeneous but identically-used objects (such as AST Nodes) may be best represented with an interface. Single-implementation interfaces are bad for small and many data structures.
-2.  Prefer fewer channels. Justification: Channels are slow and it’s nearly impossible to guarantee you won’t leave zombie goroutines lying around. Channels are threadsafe queues; use them where you might use a queue. Don’t shoehorn them in just because they exist. If you need a high-performance queue, there are alternatives.
+2.  Prefer fewer channels. Justification: Channels [are slow](http://w-dev-blog.appspot.com/posts/2015/03/05/performant-concurrent-queue/index.html) and it’s nearly impossible to guarantee you won’t leave [zombie goroutines](https://groups.google.com/forum/#!topic/golang-nuts/uiySuH8_3Y4) lying around. Channels are threadsafe queues; use them where you might use a queue. Don’t shoehorn them in just because they exist. If you need a high-performance queue, there are [alternatives](https://github.com/Workiva/go-datastructures/blob/master/queue/queue.go).
 3.  Avoid defer in tight loops. Don’t use defer inside of a function that you expect to be called in large numbers and in quick succession. Defer also has a nontrivial memory overhead.
-4.  Performance profiling is easier in Linux due to OS X kernel bug.
+4.  Performance profiling is easier in Linux due to OS X [kernel bug](https://github.com/golang/go/issues/6047).
