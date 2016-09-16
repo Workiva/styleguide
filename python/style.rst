@@ -639,13 +639,13 @@ on the next line.
 
 .. code:: python
 
-  logging.info(
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu nunc "
-    "gravida, faucibus felis a, aliquam justo. Pellentesque faucibus nisl eu "
-    "faucibus malesuada. Vivamus vestibulum, magna eu scelerisque sagittis, "
-    "dui urna tempus libero, sed pellentesque nulla felis luctus felis. "
-    "Phasellus ac tortor dignissim, euismod nibh luctus, euismod ligula."
-  )
+    logging.info(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu nunc "
+        "gravida, faucibus felis a, aliquam justo. Pellentesque faucibus nisl eu "
+        "faucibus malesuada. Vivamus vestibulum, magna eu scelerisque sagittis, "
+        "dui urna tempus libero, sed pellentesque nulla felis luctus felis. "
+        "Phasellus ac tortor dignissim, euismod nibh luctus, euismod ligula."
+    )
 
 This method of continuing is preferred to using concatenation as it offers
 superior performance.
@@ -658,14 +658,15 @@ concatenation.
 
 
 .. code:: python
-  for item in foo:
-    arbitrary_list.append(item.generate_string())
 
-  # other code...
+    for item in foo:
+        arbitrary_list.append(item.generate_string())
 
-  logging.info(
-    "".join(arbitrary_list)
-  )
+        # other code...
+
+        logging.info(
+            "".join(arbitrary_list)
+        )
 
 While it would work to break the string exactly at the 77nd character mark,
 it is better to break it at a logical point that makes it continue to be
