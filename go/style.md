@@ -15,11 +15,11 @@ Workiva Go Style Guide
 
 8.  If your test does ANYTHING on the network that is not directly set up by the test itself (e.g. connecting to a remote SQL instance, pinging www.google.com, or just expecting to find Redis running on your localhost), you must Think hard on the question do I really need this? If the answer is definitively yes, add the following block to the beginning of the test. Justification: Even though you’ve broken go test ./…, other devs need go test -short ./…
 
-```
-if testing.Short() {
-	t.Skip()
-}
-```
+    ```
+    if testing.Short() {
+        t.Skip()
+    }
+    ```
 
 9.  Don’t use [dot imports](http://stackoverflow.com/a/6478990). Justification: They pollute the local namespace and confuse language tooling.
 10.  The go test command provides a -race flag that automatically detects data races. Ideally, your continuous integration server should run your tests with -race. Justification: Catching data races is hard. If you enforce a race detector, every build will increase your chances of finding synchronization bugs in your code.
