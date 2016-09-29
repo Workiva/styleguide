@@ -8,11 +8,9 @@ Workiva Go Style Guide
 5.  Prefer the %q and %+v directives over the %v directive in errors and logging messages. Justification: %v can result in ambiguous error messages when strings are used because the value is not encapsulated.
 6.  Don’t implement the magic String() method. Justification: if you accidentally use Printf the wrong way, you’ll end up in an infinite recursion loop and crash the server. This is hard to catch in testing.
 7.  Mocks constructed with [testify](https://github.com/stretchr/testify) must follow these rules:
-
--   They must be publicly available. Justification: A private mock is not reusable and leads to dangerous copy-pasting.
--   They must exist in the same repository as the interface they mock. Justification: When the interface changes, the developer will also update the mock as part of the same PR. This prevents extraneous, annoying, PRs and keeps breakage to a minimum.
--   Prefer keeping the mocks in a separate /mock package that is imported by tests only. Justification: The mocks should not be included in the production binary.
-
+    - They must be publicly available. Justification: A private mock is not reusable and leads to dangerous copy-pasting.
+    - They must exist in the same repository as the interface they mock. Justification: When the interface changes, the developer will also update the mock as part of the same PR. This prevents extraneous, annoying, PRs and keeps breakage to a minimum.
+    - Prefer keeping the mocks in a separate /mock package that is imported by tests only. Justification: The mocks should not be included in the production binary.
 8.  If your test does ANYTHING on the network that is not directly set up by the test itself (e.g. connecting to a remote SQL instance, pinging www.google.com, or just expecting to find Redis running on your localhost), you must Think hard on the question do I really need this? If the answer is definitively yes, add the following block to the beginning of the test. Justification: Even though you’ve broken go test ./…, other devs need go test -short ./…
 
 ```
