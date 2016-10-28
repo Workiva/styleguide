@@ -1,19 +1,25 @@
 Workiva Go Style Guide
 ======================
 
-1.  Follow [Effective Go](https://golang.org/doc/effective_go.html) and use [proper commit messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
-2.  Make sure your editor automatically runs gofmt on your source code.
-3.  Refer to [best practices as described by Peter Bourgon](https://peter.bourgon.org/go-best-practices-2016/)
-4.  Prefer wrapping lines to 80 characters, but avoid breaking string literals in error messages. Justification: If you break string literals, you break grep.
-5.  Prefer the %q and %+v directives over the %v directive in errors and logging messages. Justification: %v can result in ambiguous error messages when strings are used because the value is not encapsulated.
-6.  Don’t implement the magic String() method. Justification: if you accidentally use Printf the wrong way, you’ll end up in an infinite recursion loop and crash the server. This is hard to catch in testing.
-7.  Mocks constructed with [testify](https://github.com/stretchr/testify) must follow these rules:
+1. Follow
 
--   They must be publicly available. Justification: A private mock is not reusable and leads to dangerous copy-pasting.
--   They must exist in the same repository as the interface they mock. Justification: When the interface changes, the developer will also update the mock as part of the same PR. This prevents extraneous, annoying, PRs and keeps breakage to a minimum.
--   Prefer keeping the mocks in a separate /mock package that is imported by tests only. Justification: The mocks should not be included in the production binary.
+- [Effective Go](https://golang.org/doc/effective_go.html)
+- [A Note About Git Commit Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+- [Go Best Practices](https://peter.bourgon.org/go-best-practices-2016/)
+- [Receivers In Go](https://blog.heroku.com/neither-self-nor-this-receivers-in-go)
+- [Functional Options for Friendly APIs](http://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis)
 
-8.  If your test does ANYTHING on the network that is not directly set up by the test itself (e.g. connecting to a remote SQL instance, pinging www.google.com, or just expecting to find Redis running on your localhost), you must Think hard on the question do I really need this? If the answer is definitively yes, add the following block to the beginning of the test. Justification: Even though you’ve broken go test ./…, other devs need go test -short ./…
+2. Make sure your editor automatically runs gofmt on your source code.
+3. Prefer wrapping lines to 80 characters, but avoid breaking string literals in error messages. Justification: if you break string literals, you break grep.
+4. Prefer the %q and %+v directives over the %v directive in errors and logging messages. Justification: %v can result in ambiguous error messages when strings are used because the value is not encapsulated.
+5. Don’t implement the magic String() method. Justification: if you accidentally use Printf the wrong way, you’ll end up in an infinite recursion loop and crash the server. This is hard to catch in testing.
+6.  Mocks constructed with [testify](https://github.com/stretchr/testify) must follow these rules:
+
+- They must be publicly available. Justification: a private mock is not reusable and leads to dangerous copy-pasting.
+- They must exist in the same repository as the interface they mock. Justification: when the interface changes, the developer will also update the mock as part of the same PR. This prevents extraneous, annoying, PRs and keeps breakage to a minimum.
+- Prefer keeping the mocks in a separate `/mock` package that is imported by tests only. Justification: the mocks should not be included in the production binary.
+
+7. If your test does ANYTHING on the network that is not directly set up by the test itself (e.g. connecting to a remote SQL instance, pinging www.google.com, or just expecting to find Redis running on your localhost), you must think hard on the question “do I really need this?”. If the answer is definitively yes, add the following block to the beginning of the test. Justification: even though you’ve broken “go test ./...”, other devs need “go test -short ./...“
 
 ```
 if testing.Short() {
@@ -21,11 +27,11 @@ if testing.Short() {
 }
 ```
 
-9.  Don’t use [dot imports](http://stackoverflow.com/a/6478990). Justification: They pollute the local namespace and confuse language tooling.
-10.  The go test command provides a -race flag that automatically detects data races. Ideally, your continuous integration server should run your tests with -race. Justification: Catching data races is hard. If you enforce a race detector, every build will increase your chances of finding synchronization bugs in your code.
-11.  Decide on a convention to use to ensure thread safety in a multithreaded environment. For example, to prevent deadlocks you may make a rule that all exported methods/functions are responsible for obtaining/releasing mutexes and all non-exported functions are to remain lock-free. Deciding on a convention like this makes it easier to prevent deadlocks.
-12. Only import the flag package from main.go or a dedicated configuration package. Similarly, only import your dedicated config package from the main package or another configuration package. Justification: It’s wise to keep the flag package imports contained, since obscure compilation issues can be caused by declaring global flags or calling Parse as part of init.
-
+8. Don’t use [dot imports](http://stackoverflow.com/a/6478990). Justification: they pollute the local namespace and confuse language tooling.
+9. The “go test” command provides a “-race” flag that automatically detects data races. Ideally, your continuous integration server should run your tests with “-race”. Justification: catching data races is hard. If you enforce a race detector, every build will increase your chances of finding synchronization bugs in your code.
+10. Decide on a convention to use to ensure thread safety in a multithreaded environment.  For example, to prevent deadlocks you may make a rule that all exported methods/functions are responsible for obtaining/releasing mutexes and all non-exported functions are to remain lock-free.  Deciding on a convention like this makes it easier to prevent deadlocks.
+11. Only import the “flag” package from main.go or a dedicated configuration package. Similarly, only import your dedicated config package from the main package or another configuration package. Justification: it's wise to keep the flag package imports contained, since obscure compilation issues can be caused by declaring global flags or calling Parse as part of init().
+
 Performant Go
 =============
 
