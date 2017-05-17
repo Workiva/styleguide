@@ -173,8 +173,8 @@ If a developer makes a code change in a function, he or she should check to
 make sure that the docstring is up to date.  The docstring for the function
 should be updated (if necessary) as part of the work of modifying the function.
 
-**Exception:** If a developer is working on an expedited ticket, we do want to
-impede progress on this by insisting on updating outdated docstrings within
+**Exception:** If a developer is working on an expedited ticket, we do not want
+to impede progress on this by insisting on updating outdated docstrings within
 the scope of that ticket.  Instead, the developer should spin off a tech-debt
 ticket to cover updating outdated docstrings for the functions that their
 code touches.  They can return to the tech debt ticket at a later time,
@@ -634,7 +634,7 @@ Often our logging statements or other string constants grow too large to fit on
 as single line. There are two simple methods to resolving this, and which you
 use is partially stylistic and partially performance based.
 
-The basic case is to simply break the line at the 79 character mark and continue
+The basic case is to simply break the line at the 79th character mark and continue
 on the next line.
 
 .. code:: python
@@ -650,7 +650,7 @@ on the next line.
 This method of continuing is preferred to using concatenation as it offers
 superior performance.
 
-Unfortunately, the concatenation operation for strings in python is bit slow
+Unfortunately, the concatenation operation for strings in python is a bit slow
 especially compared to continuation, so if a long string is going to be used
 often, it is usually more performant to use the join method of strings.
 Thus a continuation is preferred to a join, and a join is preferred to +
@@ -668,7 +668,7 @@ concatenation.
             "".join(arbitrary_list)
         )
 
-While it would work to break the string exactly at the 77nd character mark,
+While it would work to break the string exactly at the 79th character mark,
 it is better to break it at a logical point that makes it continue to be
 readable. Remember the goal is to make the code easier to read, not to save
 space.
