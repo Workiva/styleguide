@@ -20,6 +20,9 @@ Current Styleguides A - Z:
 [CSS]
 -----
 
+[Dart]
+------
+
 [Golang]
 --------
 
@@ -33,6 +36,7 @@ Current Styleguides A - Z:
 --------
 
   [CSS]: https://github.com/Workiva/styleguide/blob/master/css/conventions.md
+  [Dart]: https://www.dartlang.org/guides/language/effective-dart
   [Golang]: https://github.com/Workiva/styleguide/blob/master/go/style.md
   [HTML]: https://github.com/Workiva/styleguide/blob/master/html/conventions.md
   [JavaScript]: https://github.com/Workiva/styleguide/blob/master/js/README.md
