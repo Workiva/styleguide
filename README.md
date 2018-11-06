@@ -40,4 +40,4 @@ Current Styleguides A - Z:
   [Golang]: https://github.com/Workiva/styleguide/blob/master/go/style.md
   [HTML]: https://github.com/Workiva/styleguide/blob/master/html/conventions.md
   [JavaScript]: https://github.com/Workiva/styleguide/blob/master/js/README.md
-  [Python]: https://github.com/Workiva/styleguide/blob/master/python/style.rst
+  [Python]: https://github.com/Workiva/styleguide/blob/master/python/style.md
